@@ -32,7 +32,7 @@ include( 'include/header.php' );
             <div class = 'form-group'>
             <label>Message</label>
             <textarea class = 'form-control' rows= '3' name = 'message'><?php echo $megErr; ?></textarea>
-            <span class="error" id="message_err"> </span>
+            <span class="error" id="message_err"></span>
                 </div>
                 <input type = 'hidden' id = 'path' value = 'http://localhost/wordpress/wp-content/plugins/cab-booking/ajax/insert.php' />
                 <button type = 'submit' class = 'btn btn-primary' name = 'submit'>Submit</button>

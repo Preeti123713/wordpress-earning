@@ -1,7 +1,6 @@
 // update data into database using ajax
 $(document).ready(function(){
     $('#update').submit(function(e) {
-        $('.table').DataTable();
         e.preventDefault(); // Prevent the default form submission
         // var id = $(this).data("id");
         var id =$('#id').val();
@@ -12,19 +11,20 @@ $(document).ready(function(){
        var  message= $('textarea[name=message]').val();
         // alert(id);
         var ajax_url= jQuery('#path').val();
-       
+        // alert(ajax_url);
         $.ajax({
             url:ajax_url,
             method:'POST',
             data:{id:id,
-                usernameame:username,
-                useremail:email,
+                username:username,
+                email:email,
                 cab:cab,
                 datetime:datetime,
                 message:message
             },
             success:function(response){
-                alert(response);
+                var res = JSON.parse(response);
+                alert(res.message);
             }
         });
     });

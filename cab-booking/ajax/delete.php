@@ -1,4 +1,5 @@
 <?php 
+echo "jhiw"; die;
 if(isset($_GET['id']))
 {
      $sql = "DELETE FROM wp_cab WHERE id=".$_GET['id'];

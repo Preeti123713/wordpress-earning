@@ -43,14 +43,16 @@ add_menu_page('Cab Booking','Cab Booking','administrator','cab-booking','Cab_Boo
 function Cab_Booking_Listing(){
  include('cab_booking_listing.php');
 }
-add_action('wp_enqueue_scripts','insertajax');
-
+add_action('admin_enqueue_scripts','insertajax');
 function insertajax() {
-    wp_enqueue_script( 'insertajax', plugins_url( '/js/insertajax.js', __FILE__ ));
-    // wp_enqueue_script( 'updateajax', plugins_url( '/js/updateajax.js', __FILE__ ));
-    // wp_enqueue_script( 'deleteajax', plugins_url( '/js/deleteajax.js', __FILE__ ));
+    wp_enqueue_script( 'insertajax', plugins_url( '/js/insertajax.js', __FILE__ ), array('jQuery'), '1.0.0', true);
+  
 }
+add_action( 'wp_enqueue_scripts', 'my_plugin_scripts' );
+function my_plugin_scripts() {
+  wp_enqueue_script( 'insertajax', plugins_url( '/js/insertajax.js', __FILE__ ), array('jQuery'), '1.0.0', true);
 
+}
 
 function Cab_Booking_form() {
   ob_start();

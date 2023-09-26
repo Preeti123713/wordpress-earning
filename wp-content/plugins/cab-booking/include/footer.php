@@ -6,6 +6,9 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
         $(document).ready(function () {
             $('table.display').DataTable();
         });
+
+
+
     </script>
 </body>
 </html>

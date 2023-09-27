@@ -66,10 +66,14 @@ if ($query === false) {
     ];
     echo json_encode($res);
     return;
-
- 
-
-$to=$_POST['useremail']; //change to ur mail address
+}else{
+    $res = [
+        'status' => 200,
+        'message' => 'Record is Created'
+    ];
+    echo json_encode($res);
+    return;
+    $to=$_POST['useremail']; //change to ur mail address
 $strSubject="Tutorialswebsite | Email | $name";
 $htmlContent = ' 
     <html> 
@@ -127,14 +131,6 @@ echo "<script>alert('Sorry.Request not send'); window.location='index.php';exit(
 $admin = get_option( 'admin_email' );
 $headers = 'From: nriya5892@gmail.com';
 mail( $admin, $subject, $htmlContent, $headers );
-}
-else
-{
-    $res = [
-        'status' => 200,
-        'message' => 'Record is Created'
-    ];
-    echo json_encode($res);
-    return;
+
 }
 // update the data into database 

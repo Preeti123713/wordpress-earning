@@ -80,6 +80,8 @@ if ( $_GET[ 'form' ] == 'true' ) {
         </tr>
         </thead>
         <tbody>
+        <input type = 'hidden' id ='id' value = "<?php //echo $var->id; ?>"/>
+
         <?php foreach ( $result as $var ) {
             ?>
             <tr>
@@ -96,7 +98,7 @@ if ( $_GET[ 'form' ] == 'true' ) {
             <td>
             <input type = 'hidden' id ='delete' value = 'http://localhost/wordpress/wp-content/plugins/cab-booking/ajax/delete.php' />
             <a href = "admin.php?page=cab-booking&id=<?php echo $var->id;?>">
-            <button type = 'button' class = 'btn btn-danger' id = 'delete-aj'>Delete</button>
+            <button type = 'button' class = 'btn btn-danger' id = 'delete-aj' onclick="deleteItem('<?php echo $var->id; ?>',event)" >Delete</button>
             </a>
             </td>
             </tr>
@@ -114,4 +116,12 @@ if ( $_GET[ 'form' ] == 'true' ) {
 
             <?php include( 'include/footer.php' );
             ?>
+
+            <!-- <script>
+
+            function deleteItem(id){
+                    alert(id);
+                }
+
+            </script> -->
 

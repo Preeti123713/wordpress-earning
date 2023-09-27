@@ -1,3 +1,6 @@
+
+    
+
 // insert data into database using ajax
 $(document).ready(function () {
   $("#form").submit(function (e) {
@@ -65,7 +68,7 @@ $(document).ready(function () {
           var res = JSON.parse(response);
           if (res.status === 200){
             alert(res.message);
-            // Show success message or perform any other actions
+            $("#form")[0].reset();
           }else{
             alert(res.message);
             // Show error message or perform any other actions
@@ -81,7 +84,7 @@ $(document).ready(function () {
     // debugger
     var id = $("#id").val();
     var ajax_url = jQuery("#path").val();
-    var id = $("#id").val();
+    alert(ajax_url);
     var username = $("input[name=username]").val();
     var email = $("input[name=useremail]").val();
     var cab = $("#cab").val();
@@ -110,26 +113,32 @@ $(document).ready(function () {
         }
       }
     });
-    // Delete the data into Database
-    $("#delete-aj").click(function () {
-      debugger;
-      alert(1);
-      var id = $("#id").val();
-      var ajax_url = jQuery("#delete").val();
-      if (confirm("Are you sure to remove this record ?")) {
-        $.ajax({
-          url: ajax_url,
-          type: "GET",
-          data: { id: id },
-          error: function () {
-            alert("Something is wrong");
-          },
-          success: function (data) {
-            $("#" + id).remove();
-            alert("Record removed successfully");
-          },
-        });
-      }
-    });
+   });
+   
+
   });
-});
+   // Delete the data into Database
+
+  function deleteItem(id,event){
+    event.preventDefault();
+  // $("#delete-aj").click(function () {
+    var ajax_url = jQuery("#delete").val();
+    if (confirm("Are you sure to remove this record ?")) {
+      $.ajax({
+        url: ajax_url,
+        type: "GET",
+        data: { id: id },
+      success: function (data) {
+        var res = JSON.parse(data);
+        if (res.status === 200){
+          $("#" + id).remove();
+          alert(res.message); 
+          location.reload()
+        }else{
+          alert(res.message); 
+        }
+        },
+      });
+    }
+  // });
+}

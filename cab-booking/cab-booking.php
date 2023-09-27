@@ -66,19 +66,6 @@ add_shortcode('cab_booking','Cab_Booking_form');
   // /Include Javascript library
   wp_register_script('insertajax', plugin_dir_url(__FILE__) . 'js/insertajax.js', NULL,NULL, true);
   
-  // add_action('init', 'register_script');
-  // function register_script() {
-  //     wp_register_script( 'insertajax', plugins_url('/js/insertajax.js', __FILE__), array('jquery'), '2.5.1' );
-  
-  // //     wp_register_style( 'new_style', plugins_url('/css/new-style.css', __FILE__), false, '1.0.0', 'all');
-  // }
-  
-  // // use the registered jquery and style above
-  // add_action('wp_enqueue_scripts', 'enqueue_style');
-  
-  // function enqueue_style(){
-  //    wp_enqueue_script('custom_jquery');
-  
-  //    wp_enqueue_style( 'new_style' );
+ 
   // }
 
